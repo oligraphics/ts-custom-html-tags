@@ -1,0 +1,1 @@
+{"version":3,"file":"custom-tag.interface.d.ts","sourceRoot":"src/","sources":["interfaces/custom-tag.interface.ts"],"names":[],"mappings":"AAAA,MAAM,MAAM,UAAU,GAAG;IACvB,IAAI,EAAE,MAAM,CAAC;IACb,YAAY,CAAC,CAAC,EAAE,IAAI,EAAE,MAAM,GAAG,CAAC,CAAC;CAClC,CAAC"}

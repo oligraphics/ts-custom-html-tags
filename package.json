@@ -1,0 +1,46 @@
+{
+  "name": "ts-custom-html-tags",
+  "version": "1.0.1",
+  "description": "",
+  "private": true,
+  "type": "commonjs",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "test": "tsx test/src/test.ts",
+    "lint": "eslint src/**/* --fix --ignore-pattern '!**/.gitignore'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oligraphics/ts-custom-html-tags.git"
+  },
+  "author": "Oligraphics",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/oligraphics/ts-custom-html-tags/issues"
+  },
+  "homepage": "https://github.com/oligraphics/ts-custom-html-tags#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.7.39",
+    "@tsconfig/node-lts": "^20.1.3",
+    "@types/node": "^22.7.9",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.3.2",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "ts-logic-framework": "github:oligraphics/ts-logic-framework"
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"attribute.dto.d.ts","sourceRoot":"src/","sources":["dto/attributes/attribute.dto.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAE,MAAM,sCAAsC,CAAC;AAElE,MAAM,MAAM,YAAY,CAAC,CAAC,IAAI;IAC5B,IAAI,EAAE,MAAM,CAAC;IACb,KAAK,EAAE,CAAC,CAAC;CACV,GAAG,UAAU,CAAC"}
