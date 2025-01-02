@@ -1,6 +1,6 @@
 import { TestTagService } from './services/test-tag.service';
 import { readFileSync } from 'fs';
-import { CustomTagsService } from '../../src/services/custom-tags.service';
+import { CustomTagsService } from '../../src';
 import { join } from 'node:path';
 import { DynamicContextService } from 'ts-logic-framework';
 
