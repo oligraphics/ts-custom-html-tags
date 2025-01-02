@@ -8,6 +8,9 @@ class TagHandlerServiceModel {
     get customPattern() {
         return undefined;
     }
+    get parseContent() {
+        return true;
+    }
 }
 exports.TagHandlerServiceModel = TagHandlerServiceModel;
 //# sourceMappingURL=tag-handler-service.model.js.map

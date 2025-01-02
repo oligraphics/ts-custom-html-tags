@@ -13,7 +13,7 @@ exports.CustomTagsService = new (class CustomHtmlTagsService {
                 if (match) {
                     const attributes = this._parseAttributes(match[1]);
                     const text = match[2];
-                    const tag = new custom_tag_model_1.CustomTag(attributes, text);
+                    const tag = new custom_tag_model_1.CustomTag(attributes, handler.parseContent ? this.process(text, handlers, context) : text);
                     current = current.replace(match[0], handler.build(tag, context));
                 }
             } while (match);

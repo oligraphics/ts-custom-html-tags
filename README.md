@@ -6,6 +6,22 @@
 ## 1. Basics
 
 ```ts
+// Create a tag handler
+/**
+ * Demonstration service that replaces the
+ * <code><test test-attribute="some key">content</test></code> tag with
+ * <code><b>some key</b>: text</code>
+ */
+export const TestTagService =
+  new (class TestTagService extends TagHandlerServiceModel {
+    build(tag: ICustomTag, context: DynamicContext): string {
+      const attributeValue = tag.getAttribute<string>('test-attribute');
+      return `<b>${LogicService.resolve(
+        attributeValue,
+        context,
+      )}</b>: ${LogicService.resolve(tag.text, context)}`;
+    }
+  })();
 // Create a handlers map
 // Each key represents the tag name
 const handlers = { test: TestTagService };
@@ -35,4 +51,20 @@ const result = CustomTagsService.process(input, handlers, context);
 // Print the result
 console.log(result);
 // Output: <b>Apples</b>: Pears
+```
+
+## 3. Disable nested parsing
+
+```ts
+export const TestTagService =
+  new (class TestTagService extends TagHandlerServiceModel {
+    // Disable parsing of custom tags within this tag
+    get parseContent() {
+      return false;
+    }
+    build(tag: ICustomTag, context: DynamicContext): string {
+      // Tag builder logic
+      // ...
+    }
+  })();
 ```

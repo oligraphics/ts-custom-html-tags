@@ -9,5 +9,8 @@ export abstract class TagHandlerServiceModel implements ICustomTagHandler {
   get customPattern() {
     return undefined;
   }
+  get parseContent() {
+    return true;
+  }
   abstract build(tag: ICustomTag, context: DynamicContext): string;
 }

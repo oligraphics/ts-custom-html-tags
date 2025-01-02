@@ -1,6 +1,6 @@
-import { TagHandlerServiceModel } from '../../../src/models/tag-handler-service.model';
+import { TagHandlerServiceModel } from '../../../src';
 import { DynamicContext, LogicService } from 'ts-logic-framework';
-import { ICustomTag } from '../../../src/interfaces/custom-tag.interface';
+import { ICustomTag } from '../../../src';
 
 /**
  * Demonstration service that replaces the

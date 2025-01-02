@@ -19,7 +19,10 @@ export const CustomTagsService = new (class CustomHtmlTagsService {
         if (match) {
           const attributes: IAttributes = this._parseAttributes(match[1]);
           const text = match[2];
-          const tag = new CustomTag(attributes, text);
+          const tag = new CustomTag(
+            attributes,
+            handler.parseContent ? this.process(text, handlers, context) : text,
+          );
           current = current.replace(match[0], handler.build(tag, context));
         }
       } while (match);
