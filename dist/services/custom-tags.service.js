@@ -21,20 +21,38 @@ exports.CustomTagsService = new (class CustomHtmlTagsService {
         return current;
     }
     _parseAttributes(value) {
-        const pattern = /([a-zA-Z0-9_-]+)="(.*?)"(?: |$)/g;
-        let match;
         const result = [];
+        let current = value;
+        let match;
         do {
-            match = pattern.exec(value);
-            if (match) {
-                const name = match[1];
-                const value = match[2];
+            match = / |=(["'])?|$/g.exec(current);
+            if (match && (match.index ?? 0) > 0) {
+                // Read the attribute name
+                const name = current.substring(0, match.index);
+                current = current.substring(name.length);
+                let value;
+                if (match[0].startsWith('=')) {
+                    // Read the attribute value
+                    const delimiter = match[1];
+                    current = current.substring(delimiter ? 2 : 1);
+                    const endMatch = delimiter
+                        ? (delimiter === '"' ? /(?:^|(?!\\))."/g : /(?:^|(?!\\)).'/g).exec(current)
+                        : undefined;
+                    if (endMatch) {
+                        value = current.substring(0, endMatch.index > 0 ? endMatch.index + 1 : 0);
+                        current = current.substring(value.length + 1).trim();
+                    }
+                }
+                else {
+                    current = current.substring(name.length);
+                    value = '';
+                }
                 result.push({
                     name,
                     value,
                 });
             }
-        } while (match);
+        } while (match && (match.index ?? 0) > 0);
         return result;
     }
     _getPattern(name, handler) {
