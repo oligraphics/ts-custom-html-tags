@@ -79,10 +79,10 @@ exports.CustomTagsService = new (class CustomHtmlTagsService {
             return customPattern;
         }
         if (handler.tagIsEscaped) {
-            return new RegExp(`&lt;${name}(\\s[^&<>]*)?(\/)?&gt;`, 'g');
+            return new RegExp(`&lt;${name}(\\s[^&<>\/]*)?(\/)?&gt;`, 'g');
         }
         else {
-            return new RegExp(`<${name}(\\s[^<>]*)?(\/)?>`, 'g');
+            return new RegExp(`<${name}(\\s[^<>\/]*)?(\/)?>`, 'g');
         }
     }
     _getClosingTagPattern(name, handler) {
