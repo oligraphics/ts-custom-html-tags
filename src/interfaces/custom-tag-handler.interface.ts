@@ -7,9 +7,13 @@ export type ICustomTagHandler = {
    */
   get tagIsEscaped(): boolean;
   /**
-   * Supply a custom regular expression to parse the tag.
+   * Supply a custom regular expression to parse the opening tag.
    */
-  get customPattern(): RegExp | undefined;
+  get customOpeningTagPattern(): RegExp | undefined;
+  /**
+   * Supply a custom regular expression to parse the closing tag.
+   */
+  get customClosingTagPattern(): RegExp | undefined;
   /**
    * Whether to parse custom tags within the content of this tag
    */

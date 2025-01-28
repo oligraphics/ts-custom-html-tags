@@ -6,6 +6,7 @@ export declare const CustomTagsService: {
         [name: string]: ICustomTagHandler;
     }, context?: DynamicContext): string;
     _parseAttributes(value: string): IAttributes;
-    _getPattern(name: string, handler: ICustomTagHandler): RegExp;
+    _getOpeningTagPattern(name: string, handler: ICustomTagHandler): RegExp;
+    _getClosingTagPattern(name: string, handler: ICustomTagHandler): RegExp;
 };
 //# sourceMappingURL=custom-tags.service.d.ts.map

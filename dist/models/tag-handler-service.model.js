@@ -5,7 +5,10 @@ class TagHandlerServiceModel {
     get tagIsEscaped() {
         return false;
     }
-    get customPattern() {
+    get customOpeningTagPattern() {
+        return undefined;
+    }
+    get customClosingTagPattern() {
         return undefined;
     }
     get parseContent() {
