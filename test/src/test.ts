@@ -3,12 +3,16 @@ import { readFileSync } from 'fs';
 import { CustomTagsService } from '../../src';
 import { join } from 'node:path';
 import { DynamicContextService } from 'ts-logic-framework';
+import { TestTagEscapedService } from './services/test-tag-escaped.service';
 
 const context = DynamicContextService.createContext({
   a: 'Apples',
   b: 'Pears',
 });
-const handlers = { test: TestTagService };
+const handlers = {
+  test: TestTagService,
+  'test-escaped': TestTagEscapedService,
+};
 const html = readFileSync(join(__dirname, '../resources/test.html')).toString(
   'utf-8',
 );

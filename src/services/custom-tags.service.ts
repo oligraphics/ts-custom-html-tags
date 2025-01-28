@@ -24,7 +24,7 @@ export const CustomTagsService = new (class CustomHtmlTagsService {
           ? closingTagPattern.exec(current)
           : undefined;
         if (!selfClosing && !closingTagMatch) {
-          console.error('No more closing tags found for tag', name);
+          console.error('No more closing tags found for tag', name, current);
           break;
         }
         const closingTagEndIndex =
