@@ -3,6 +3,9 @@ import { DynamicContext } from 'ts-logic-framework';
 import { ICustomTagHandler } from '../interfaces/custom-tag-handler.interface';
 
 export abstract class TagHandlerServiceModel implements ICustomTagHandler {
+  get debug() {
+    return false;
+  }
   get tagIsEscaped() {
     return false;
   }

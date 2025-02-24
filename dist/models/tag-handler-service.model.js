@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TagHandlerServiceModel = void 0;
 class TagHandlerServiceModel {
+    get debug() {
+        return false;
+    }
     get tagIsEscaped() {
         return false;
     }

@@ -14,6 +14,15 @@ export const CustomTagsService = new (class CustomHtmlTagsService {
     for (const [name, handler] of Object.entries(handlers)) {
       const openingTagPattern = this._getOpeningTagPattern(name, handler);
       const closingTagPattern = this._getClosingTagPattern(name, handler);
+      if (handler.debug) {
+        console.debug(
+          name,
+          'Opening pattern:',
+          openingTagPattern,
+          'Closing pattern:',
+          closingTagPattern,
+        );
+      }
       const matches = [...current.matchAll(openingTagPattern)].reverse();
       for (const match of matches) {
         const openingTagStartIndex = match.index;
@@ -95,9 +104,9 @@ export const CustomTagsService = new (class CustomHtmlTagsService {
       return customPattern;
     }
     if (handler.tagIsEscaped) {
-      return new RegExp(`&lt;${name}(\\s[^&<>\/]*)?(\/)?&gt;`, 'g');
+      return new RegExp(`&lt;${name}(\\s[^&<>]*)?(\/)?&gt;`, 'g');
     } else {
-      return new RegExp(`<${name}(\\s[^<>\/]*)?(\/)?>`, 'g');
+      return new RegExp(`<${name}(\\s[^<>]*)?(\/)?>`, 'g');
     }
   }
   _getClosingTagPattern(name: string, handler: ICustomTagHandler): RegExp {

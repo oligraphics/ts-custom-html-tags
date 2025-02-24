@@ -3,6 +3,10 @@ import { DynamicContext } from 'ts-logic-framework';
 
 export type ICustomTagHandler = {
   /**
+   * Whether to show console output
+   */
+  get debug(): boolean;
+  /**
    * Whether the tag uses &lt;&gt; instead of <>
    */
   get tagIsEscaped(): boolean;
